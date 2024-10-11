@@ -48,6 +48,7 @@ $username = $_SESSION['username'];
 <body>
     <h1>恭喜你，<?php echo htmlspecialchars($username); ?>！登录成功！</h1>
     <p>欢迎来到你的个人空间！</p>
+    <p>flag{Hyyyyyyyy_No.1!!!!!!!!!}</p>
     <a href="loginout.php">返回主页</a>
 </body>
 </html>

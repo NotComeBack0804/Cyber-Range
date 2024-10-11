@@ -54,12 +54,12 @@ $items = array_diff($items, array('.', '..', 'index.php'));
 </head>
 <body>
     <div class="container">
-        <h1>当前目录</h1>
+        <h1>当前目录_后面是题目难度</h1>
         <?php foreach ($items as $item): ?>
             <div class="item">
                 <?php if (is_dir($item)): ?>
                     <a href="<?php echo $item; ?>"><?php echo $item; ?></a>
-                    <span>目录</span>
+                    <span>题目</span>
                 <?php else: ?>
                     <a href="<?php echo $item; ?>"><?php echo $item; ?></a>
                     <span>文件</span>

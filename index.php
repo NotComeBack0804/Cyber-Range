@@ -1,7 +1,7 @@
 <?php
 // 获取当前目录的文件和目录
 $items = scandir('.');
-$items = array_diff($items, array('.', '..', 'index.php'));
+$items = array_diff($items, array('.', '..', 'index.php','.git'));
 ?>
 
 <!DOCTYPE html>

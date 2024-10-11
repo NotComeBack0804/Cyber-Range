@@ -62,6 +62,7 @@
 <body>
   <div class="container">
       <h2>Login</h2>
+      <h2>flag_inside</h2>
       <form action="check.php" method="post">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
