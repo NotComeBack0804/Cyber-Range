@@ -15,21 +15,13 @@
         </form>
     
         <?php
+include('../../config/sql_config.php');
 if (isset($_GET['query'])) {
     $query = htmlspecialchars($_GET['query']);
     echo "<h2>搜索结果 for: <em>$query</em></h2>";
-    
-    // 创建数据库连接
-    $conn = mysqli_connect('127.0.0.1', 'root', 'root', 'SQL', 3306);
-    
-    // 检查连接
-    if (!$conn) {
-        die("连接失败: " . mysqli_connect_error());
-    }
-    
     // 查询名称
-    $Name_query = "SELECT Name FROM diff_mid WHERE Name='$query'";
-    $Position_query = "SELECT Position FROM diff_mid WHERE Name='$query'";
+    $Name_query = "SELECT Name,Position FROM diff_mid WHERE id='$query'";
+    $Position_query = "SELECT Position FROM diff_mid WHERE id='$query'";
     
     // 执行查询
     $Name_result = mysqli_query($conn, $Name_query);

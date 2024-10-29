@@ -1,10 +1,7 @@
 <?php
 require 'config.php';
+include('../../config/sql_config.php');
 highlight_file('index.php');
-$conn = new mysqli($servername,$username,$password,$dbname);
-if ($conn->connect_error){
-    die("连接失败");
-}
 $sql="SELECT  COUNT(*) FROM shenji";
 $whitelist = array();
 $result = $conn->query($sql);
