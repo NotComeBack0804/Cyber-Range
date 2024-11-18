@@ -25,6 +25,17 @@ $items = array_diff($items, array('.', '..', 'index.php'));
             max-width: 800px;
             margin: 0 auto;
         }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
         .item {
             background: #ffffff;
             border: 1px solid #dee2e6;
@@ -55,6 +66,8 @@ $items = array_diff($items, array('.', '..', 'index.php'));
 <body>
     <div class="container">
         <h1>当前目录_后面是题目难度</h1>
+                <!-- 返回上级目录的按钮 -->
+        <a href="../" class="back-button">返回</a>
         <?php foreach ($items as $item): ?>
             <div class="item">
                 <?php if (is_dir($item)): ?>

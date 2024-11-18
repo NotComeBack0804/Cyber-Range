@@ -53,6 +53,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['file'])) {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
         .file-list {
             list-style: none;
             padding: 0;
@@ -76,6 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['file'])) {
 <body>
     <div class="container">
         <h1>文件下载</h1>
+                <!-- 返回上级目录的按钮 -->
+        <a href="../" class="back-button">返回</a>
         <ul class="file-list">
             <?php foreach ($files as $file): ?>
                 <li>

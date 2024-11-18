@@ -17,9 +17,8 @@ class Begin{
 class Then{
     private $func;
 
-    public function __toString()       
-    {
-        ($this->func)();     
+    public function __toString(){
+        ($this->func)();  
     }
 
 }

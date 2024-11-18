@@ -1,7 +1,7 @@
 <?php
 // 获取当前目录的文件和目录
 $items = scandir('.');
-$items = array_diff($items, array('.', '..', 'index.php','.git','README.md','database.sql'));
+$items = array_diff($items, array('.', '..', 'index.php','.git','README.md','database.sql','config'));
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ $items = array_diff($items, array('.', '..', 'index.php','.git','README.md','dat
 </head>
 <body>
     <div class="container">
-        <h1>当前目录</h1>
+        <h1>关卡</h1>
         <?php foreach ($items as $item): ?>
             <div class="item">
                 <?php if (is_dir($item)): ?>
