@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
 // 初始化留言数组
 if (!isset($_SESSION['messages'])) {
     $_SESSION['messages'] = [];

@@ -15,6 +15,12 @@
         </form>
     
         <?php
+        session_start();
+
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ../../login.php");
+        exit();
+    }
 include('../../config/sql_config.php');
 if (isset($_GET['query'])) {
     $query = htmlspecialchars($_GET['query']);

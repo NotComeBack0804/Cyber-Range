@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 // error_reporting(0);
 $userdir = "uploads/" . md5($_SERVER["REMOTE_ADDR"]);
 if (!file_exists($userdir)) {

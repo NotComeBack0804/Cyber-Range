@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
 // 获取当前目录的文件和目录
 $items = scandir('.');
 $items = array_diff($items, array('.', '..', 'index.php'));
@@ -66,7 +72,7 @@ $items = array_diff($items, array('.', '..', 'index.php'));
 <body>
     <div class="container">
         <h1>当前目录_后面是题目难度</h1>
-        <!-- 返回上级目录的按钮 -->
+            <!-- 返回上级目录的按钮 -->
         <a href="../" class="back-button">返回</a>
         <?php foreach ($items as $item): ?>
             <div class="item">

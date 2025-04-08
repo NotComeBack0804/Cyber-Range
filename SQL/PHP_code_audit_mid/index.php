@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 require 'config.php';
 include('../../config/sql_config.php');
 highlight_file('index.php');

@@ -2,7 +2,7 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.7.26 : Database - sql
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -30,17 +30,7 @@ CREATE TABLE `diff_mid` (
 
 insert  into `diff_mid`(`id`,`Name`,`Position`) values (1,'Hyyy','CEO'),(2,'xiaoming','COO'),(3,'admin','CIO'),(4,'cxk','chicken');
 
-/*Table structure for table `flags` */
 
-DROP TABLE IF EXISTS `flags`;
-
-CREATE TABLE `flags` (
-  `flag` char(64) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-/*Data for the table `flags` */
-
-insert  into `flags`(`flag`) values ('flag{Hyyy_No.1_6666!!!}');
 
 /*Table structure for table `shenji` */
 
@@ -70,6 +60,16 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`username`,`password`) values ('admin','admin+cxk'),('cxk','cxk');
+
+-- 修改现有users表结构
+ALTER TABLE `users` 
+ADD COLUMN `id` INT NOT NULL AUTO_INCREMENT FIRST,
+ADD COLUMN `email` VARCHAR(100) NOT NULL AFTER `password`,
+ADD COLUMN `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP AFTER `email`,
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE INDEX `username_UNIQUE` (`username`),
+CHANGE COLUMN `username` `username` VARCHAR(50) NOT NULL ,
+CHANGE COLUMN `password` `password` VARCHAR(255) NOT NULL ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

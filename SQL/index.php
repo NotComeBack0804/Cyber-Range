@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ..    /login.php");
+    exit();
+}
 // 获取当前目录的文件和目录
 $items = scandir('.');
 $items = array_diff($items, array('.', '..', 'index.php'));

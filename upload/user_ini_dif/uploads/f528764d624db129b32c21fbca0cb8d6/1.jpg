@@ -1,3 +1,0 @@
-GIF89a
-<!-- <script language="php">phpinfo();</script> -->
-<?=`whoami`;

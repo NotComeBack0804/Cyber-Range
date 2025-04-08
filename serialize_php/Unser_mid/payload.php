@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 highlight_file(__FILE__);
 class Hyyy_true{
     public $pyload = "system('whoami');";

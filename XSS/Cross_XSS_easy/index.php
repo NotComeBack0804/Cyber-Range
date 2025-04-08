@@ -28,6 +28,12 @@
 </form>
 
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
 if (isset($_GET['query'])) {
     $query = $_GET['query']; // 获取用户输入并防止 XSS
     echo "<h2>搜索结果: '{$query}'</h2>";

@@ -1,7 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 // 获取当前目录的文件和目录
 $items = scandir('.');
-$items = array_diff($items, array('.', '..', 'index.php','.git','README.md','database.sql','config'));
+$items = array_diff($items, array('.', '..', 'js','index.php','.git','README.md','database.sql','config','login.php','register.php','logout.php'));
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +22,22 @@ $items = array_diff($items, array('.', '..', 'index.php','.git','README.md','dat
             background-color: #f8f9fa;
             margin: 0;
             padding: 20px;
+            position: relative;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
         }
         h1 {
             text-align: center;
@@ -54,6 +76,7 @@ $items = array_diff($items, array('.', '..', 'index.php','.git','README.md','dat
 </head>
 <body>
     <div class="container">
+        <a href="logout.php" class="logout-btn">退出登录</a>
         <h1>关卡</h1>
         <?php foreach ($items as $item): ?>
             <div class="item">
