@@ -1,3 +1,16 @@
+<?php
+ob_start();
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+if (isset($_GET['query'])) {
+    $query = $_GET['query']; // 获取用户输入并防止 XSS
+    echo "<h2>搜索结果: '{$query}'</h2>";
+}
+?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -26,19 +39,5 @@
     <input type="text" name="query" placeholder="请输入搜索关键字" required>
     <input type="submit" value="搜索">
 </form>
-
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../../login.php");
-    exit();
-}
-if (isset($_GET['query'])) {
-    $query = $_GET['query']; // 获取用户输入并防止 XSS
-    echo "<h2>搜索结果: '{$query}'</h2>";
-}
-?>
-
 </body>
 </html>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 // 获取当前目录的文件和目录
 $items = scandir('.');
-$items = array_diff($items, array('.', '..', 'js','index.php','.git','README.md','database.sql','config','login.php','register.php','logout.php'));
+$items = array_diff($items, array('.', '..', 'js','index.php','.git','README.md','database.sql','config','login.php','register.php','logout.php',"Docker","docker-compose.yaml"));
 ?>
 
 <!DOCTYPE html>

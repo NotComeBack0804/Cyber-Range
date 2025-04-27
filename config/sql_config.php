@@ -1,6 +1,6 @@
 <?php
 // 数据库配置 - 支持环境变量覆盖
-$servername = getenv('DB_HOST') ?: '127.0.0.1';
+$servername = getenv('DB_HOST') ?: 'cyber_mysql';
 $username = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASS') ?: 'root';
 $dbname = getenv('DB_NAME') ?: 'sql';
@@ -36,7 +36,7 @@ if (!$conn->set_charset("utf8mb4")) {
  * @throws Exception 当连接失败时抛出异常
  */
 function get_db_connection($host = null, $user = null, $pass = null, $db = null) {
-    $host = $host ?? getenv('DB_HOST') ?: '127.0.0.1';
+    $host = $host ?? getenv('DB_HOST') ?: 'cyber_mysql';
     $user = $user ?? getenv('DB_USER') ?: 'root';
     $pass = $pass ?? getenv('DB_PASS') ?: 'root';
     $db = $db ?? getenv('DB_NAME') ?: 'sql';

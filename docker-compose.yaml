@@ -1,0 +1,39 @@
+version: '2.2'
+
+services:
+  php:
+    build:
+      context: ./Docker/php
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ../Cyber-Range:/var/www/html
+    networks:
+      - Cyber-Range
+    depends_on:
+      - mysql
+    container_name: cyber_php
+  mysql:
+    build:
+      context: ./Docker/mysql
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sql
+      MYSQL_USER: huangyuhao
+      MYSQL_PASSWORD: huangyuhao
+    ports:
+      - "33306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - Cyber-Range
+    container_name: cyber_mysql
+volumes:
+  mysql_data:
+networks:
+  Cyber-Range:
+    driver: bridge
