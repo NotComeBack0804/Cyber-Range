@@ -15,7 +15,7 @@ class Begin{
         if(preg_match("/[a-zA-Z0-9]/",$this->name)){      
             echo "Hello";
         }else{
-            echo "Welcome to NewStarCTF 2023!";
+            echo "Welcome to Cyber-Range!!!";
         }
     }
 }

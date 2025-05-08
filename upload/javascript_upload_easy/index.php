@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -80,14 +88,6 @@
     </style>
 </head>
 <body>
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../../login.php");
-    exit();
-}
-?>
 <div class="container">
     <h1>文件上传</h1>
     <form id="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
